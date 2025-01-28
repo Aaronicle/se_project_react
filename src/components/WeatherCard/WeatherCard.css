@@ -12,6 +12,8 @@
   position: absolute;
   top: 20px;
   left: 16px;
+  font-family: "CabinetGrotesk-Medium";
+  color: white;
 }
 
 .weather-card__image {

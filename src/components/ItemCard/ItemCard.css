@@ -10,11 +10,12 @@
   top: 15px;
   margin: 0;
   background-color: white;
-  height: 24px;
-  width: 73px;
   padding: 2px 12px;
   font-size: 16px;
   line-height: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "CabinetGrotesk-Medium";
 }
 
 .card__image {

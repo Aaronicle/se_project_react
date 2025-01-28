@@ -6,3 +6,9 @@
   list-style-type: none;
   gap: 21px;
 }
+
+.cards__text {
+  font-family: "CabinetGrotesk-Medium";
+  font-size: 20px;
+  line-height: 25px;
+}
