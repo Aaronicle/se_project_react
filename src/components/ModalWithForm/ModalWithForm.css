@@ -9,6 +9,9 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  font-family: "CabinetGrotesk-Medium";
+  line-height: 20px;
+  font-size: 16px;
 }
 
 .modal_opened {
@@ -17,6 +20,8 @@
 
 .modal__title {
   margin: 0;
+  font-size: 16px;
+  margin-bottom: 24px;
 }
 
 .modal__close {
@@ -25,13 +30,23 @@
   right: 28px;
 }
 
+.modal__close_form {
+  background-image: url(../../assets/closegray.png);
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .modal__content {
   background-color: white;
   position: relative;
   padding: 28px 28px 36px;
-  max-width: 496px;
-  box-sizing: border-box;
+  max-width: 440px;
+  max-height: 436px;
   width: 100%;
+  border-radius: 30px;
 }
 
 .modal__form {
@@ -49,4 +64,15 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  margin-top: 32px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }

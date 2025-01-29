@@ -1,0 +1,19 @@
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 81px;
+  padding-bottom: 24px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.footer__name {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium";
+}
+
+.footer__year {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium";
+}

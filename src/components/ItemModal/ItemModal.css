@@ -1,0 +1,39 @@
+.modal__close_item {
+  background-image: url(../../assets/close.png);
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.modal__content_type_image {
+  max-width: 498px;
+  max-height: 610px;
+  padding: 0;
+}
+
+.modal__image {
+  border-radius: 30px;
+  max-width: 498px;
+  max-height: 498px;
+}
+
+.modal__footer {
+  padding-left: 32px;
+  padding-top: 20px;
+}
+
+.modal__weather {
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+.modal__caption {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
