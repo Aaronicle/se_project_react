@@ -15,13 +15,14 @@
 }
 
 .header__add-clothes-btn {
-  margin-left: auto;
+  margin-left: 20px;
   margin-right: 20px;
   font-size: 20px;
   line-height: 24px;
   font-family: "CabinetGrotesk-Medium";
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .header__user-container {
