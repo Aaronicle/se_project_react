@@ -12,10 +12,13 @@
   max-width: 498px;
   max-height: 610px;
   padding: 0;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
 }
 
 .modal__image {
-  border-radius: 30px;
+  border-radius: 20px;
   max-width: 498px;
   max-height: 498px;
 }
@@ -36,4 +39,20 @@
   margin: 0;
   font-size: 20px;
   line-height: 24px;
+}
+
+.modal__delete-btn {
+  background-color: white;
+  position: absolute;
+  left: 350px;
+  bottom: 50px;
+  color: rgba(255, 77, 0, 1);
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  font-size: 20px;
+  display: flex;
+  width: 120px;
+  cursor: pointer;
 }

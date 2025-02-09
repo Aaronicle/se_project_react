@@ -1,0 +1,9 @@
+.clothes-section__title {
+  display: flex;
+}
+
+.clothes-section__items {
+  flex-wrap: wrap;
+  display: flex;
+  padding: 0;
+}

@@ -37,3 +37,8 @@
   line-height: 25px;
   font-family: "CabinetGrotesk-Medium";
 }
+
+.header__link {
+  text-decoration: none;
+  color: black;
+}
