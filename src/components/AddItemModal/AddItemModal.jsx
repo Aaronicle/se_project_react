@@ -29,6 +29,27 @@ export default function AddItemModal({
     setweather("");
   };
 
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     onAddItemModalSubmit({ name, imageUrl, weather })
+  //       .then(() => {
+  //         setName("");
+  //         setImageUrl("");
+  //         setWeather("");
+  //       })
+  //       .catch((error) => {
+  //         console.error("Submission error:", error);
+  //       });
+  //   };
+
+  //   React.useEffect(() => {
+  //     if (isOpen) {
+  //       setName("");
+  //       setImageUrl("");
+  //       setWeather("");
+  //     }
+  //   }, [isOpen]);
+
   return (
     <ModalWithForm
       title="New garment"

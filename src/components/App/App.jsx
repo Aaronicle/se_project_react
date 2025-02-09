@@ -53,7 +53,7 @@ function App() {
 
   const handleDeleteItem = (cardId) => {
     deleteCard(selectedCard._id)
-      .then(() => {
+      .then((selectedCard) => {
         setClothingItems(
           clothingItems.filter((item) => item._id !== selectedCard.id)
         );
