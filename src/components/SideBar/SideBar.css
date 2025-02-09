@@ -6,3 +6,12 @@
 .sidebar__avatar {
   height: 56px;
 }
+
+.sidebar__username {
+  margin: 0;
+  font-family: "CabinetGrotesk-Medium";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.8px;
+  width: 157px;
+}

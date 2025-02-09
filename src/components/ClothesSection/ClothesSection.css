@@ -1,9 +1,23 @@
-.clothes-section__title {
+.clothes-section__title-section {
   display: flex;
+  gap: 20px;
+  font-family: "CabinetGrotesk-Medium";
+  font-size: 20px;
+  line-height: 25px;
 }
 
 .clothes-section__items {
   flex-wrap: wrap;
   display: flex;
   padding: 0;
+  gap: 20px;
+}
+
+.clothes-section__title {
+  margin: 0;
+}
+.clothes-section__btn {
+  color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  border: none;
 }
