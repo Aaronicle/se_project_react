@@ -31,6 +31,7 @@ function App() {
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
+    console.log("card", card);
     setSelectedCard(card);
   };
 
@@ -43,7 +44,7 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    addItem({ name, imageUrl, weather })
+    return addItem({ name, imageUrl, weather })
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
         closeActiveModal();
@@ -51,12 +52,11 @@ function App() {
       .catch(console.error);
   };
 
-  const handleDeleteItem = (cardId) => {
+  const handleDeleteItem = () => {
+    const id = selectedCard._id;
     deleteCard(selectedCard._id)
-      .then((selectedCard) => {
-        setClothingItems(
-          clothingItems.filter((item) => item._id !== selectedCard.id)
-        );
+      .then(() => {
+        setClothingItems(clothingItems.filter((item) => item._id !== id));
         setSelectedCard({});
         closeActiveModal();
       })

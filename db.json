@@ -1,12 +1,6 @@
 {
   "items": [
     {
-      "_id": 3,
-      "name": "Coat",
-      "weather": "cold",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4"
-    },
-    {
       "_id": 4,
       "name": "Dress",
       "weather": "hot",
@@ -61,28 +55,16 @@
       "_id": 17
     },
     {
-      "name": "asdasd",
+      "name": "one",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Ragdoll_from_Gatil_Ragbelas.jpg",
-      "weather": "cold",
+      "weather": "hot",
       "_id": 18
     },
     {
-      "name": "asdasd",
+      "name": "two",
       "imageUrl": "https://imgs.search.brave.com/9SuJ_aDPjZTQnc1f6HaDcrolD-Z_qH43-EeD2ostc44/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYz/MjA4NDg3L3Bob3Rv/L21hbGUtY29hdC1p/c29sYXRlZC1vbi10/aGUtd2hpdGUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPTNT/ZHE1eG5WUzJqT1lQ/TlhJNkpMd0F1bXp5/ZWxjUF9WZ0tWVzBN/VlVod289",
-      "weather": "cold",
+      "weather": "warm",
       "_id": 19
-    },
-    {
-      "name": "asdasd",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Ragdoll_from_Gatil_Ragbelas.jpg",
-      "weather": "cold",
-      "_id": 20
-    },
-    {
-      "name": "asdasd",
-      "imageUrl": "https://imgs.search.brave.com/9SuJ_aDPjZTQnc1f6HaDcrolD-Z_qH43-EeD2ostc44/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYz/MjA4NDg3L3Bob3Rv/L21hbGUtY29hdC1p/c29sYXRlZC1vbi10/aGUtd2hpdGUuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPTNT/ZHE1eG5WUzJqT1lQ/TlhJNkpMd0F1bXp5/ZWxjUF9WZ0tWVzBN/VlVod289",
-      "weather": "cold",
-      "_id": 22
     }
   ]
 }

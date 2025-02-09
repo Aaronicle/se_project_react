@@ -1,6 +1,6 @@
 import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AddItemModal({
   handleCloseClick,
@@ -9,7 +9,7 @@ export default function AddItemModal({
 }) {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [weather, setweather] = useState("");
+  const [weather, setWeather] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -18,37 +18,37 @@ export default function AddItemModal({
     setImageUrl(e.target.value);
   };
   const handleWeatherChange = (e) => {
-    setweather(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddItemModalSubmit({ name, imageUrl, weather });
-    setName("");
-    setImageUrl("");
-    setweather("");
+    setWeather(e.target.value);
   };
 
   //   const handleSubmit = (e) => {
   //     e.preventDefault();
-  //     onAddItemModalSubmit({ name, imageUrl, weather })
-  //       .then(() => {
-  //         setName("");
-  //         setImageUrl("");
-  //         setWeather("");
-  //       })
-  //       .catch((error) => {
-  //         console.error("Submission error:", error);
-  //       });
+  //     onAddItemModalSubmit({ name, imageUrl, weather });
+  //     setName("");
+  //     setImageUrl("");
+  //     setweather("");
   //   };
 
-  //   React.useEffect(() => {
-  //     if (isOpen) {
-  //       setName("");
-  //       setImageUrl("");
-  //       setWeather("");
-  //     }
-  //   }, [isOpen]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddItemModalSubmit({ name, imageUrl, weather })
+      .then(() => {
+        setName("");
+        setImageUrl("");
+        setWeather("");
+      })
+      .catch((error) => {
+        console.error("Submission error:", error);
+      });
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
