@@ -14,6 +14,26 @@
   font-family: "CabinetGrotesk-Medium";
 }
 
+.header__auth-buttons {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.header__button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "CabinetGrotesk-Medium";
+}
+
+.header__button:hover {
+  opacity: 0.8;
+}
+
 .header__add-clothes-btn {
   margin-left: 20px;
   margin-right: 20px;

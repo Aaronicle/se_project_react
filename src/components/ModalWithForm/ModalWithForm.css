@@ -58,6 +58,7 @@
 
 .modal__input {
   display: block;
+  padding-top: 8px;
 }
 
 .modal__radio-buttons {
