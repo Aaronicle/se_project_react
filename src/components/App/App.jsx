@@ -117,15 +117,16 @@ function App() {
     const token = localStorage.getItem("jwt");
     return addItem({ name, imageUrl, weather }, token)
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems([data.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error);
   };
 
   const handleDeleteItem = () => {
+    const token = localStorage.getItem("jwt");
     const id = selectedCard._id;
-    deleteCard(selectedCard._id)
+    deleteCard(id, token)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
         setSelectedCard({});

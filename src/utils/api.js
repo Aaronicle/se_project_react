@@ -19,9 +19,13 @@ function addItem({ name, imageUrl, weather }, token) {
   }).then(checkRes);
 }
 
-function deleteCard(cardId) {
+function deleteCard(cardId, token) {
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   }).then(checkRes);
 }
 
