@@ -25,7 +25,7 @@ const SigninModal = ({ isOpen, onClose, onSubmit }) => {
     <ModalWithForm
       title="Sign In"
       isOpen={isOpen}
-      onClose={onClose}
+      handleCloseClick={onClose}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">

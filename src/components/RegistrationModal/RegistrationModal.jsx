@@ -75,7 +75,7 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       title="Sign up"
       buttonText="Next"
       isOpen={isOpen}
-      onClose={onClose}
+      handleCloseClick={onClose}
       onSubmit={handleSubmit}
     >
       <label className="modal__label">

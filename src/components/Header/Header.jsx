@@ -3,16 +3,20 @@ import logo from "../../assets/Logo.svg";
 import avatar from "../../assets/Avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 
-function Header({
+const Header = ({
   handleAddClick,
   weatherData,
   onSignupClick,
   onSigninClick,
-  onSignOut,
-  isLoggedIn,
-  currentUser,
-}) {
+}) => {
+  const getInitial = (name) => {
+    return name ? name.charAt(0).toUpperCase() : "";
+  };
+
+  const { isLoggedIn, currentUser, onSignOut } = useContext(UserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -41,11 +45,17 @@ function Header({
           <Link to="/profile" className="header__link">
             <div className="header__user-container">
               <p className="header__username">{currentUser?.name}</p>
-              <img
-                src={currentUser?.avatar || avatar}
-                alt={currentUser?.name}
-                className="header__avatar"
-              />
+              {currentUser?.avatar ? (
+                <img
+                  src={currentUser.avatar}
+                  alt={currentUser.name}
+                  className="header__avatar"
+                />
+              ) : (
+                <div className="header__avatar header__avatar-placeholder">
+                  {getInitial(currentUser?.name)}
+                </div>
+              )}
             </div>
           </Link>
           <button type="button" className="header__button" onClick={onSignOut}>
@@ -72,6 +82,6 @@ function Header({
       )}
     </header>
   );
-}
+};
 
 export default Header;
