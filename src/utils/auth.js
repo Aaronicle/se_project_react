@@ -1,11 +1,5 @@
 const BASE_URL = "http://localhost:3001";
-
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
+import { checkRes } from "./api";
 
 export const signup = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -14,7 +8,7 @@ export const signup = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(checkResponse);
+  }).then(checkRes);
 };
 
 export const signin = ({ email, password }) => {
@@ -24,7 +18,7 @@ export const signin = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  }).then(checkRes);
 };
 
 export const checkToken = (token) => {
@@ -34,5 +28,5 @@ export const checkToken = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  }).then(checkRes);
 };

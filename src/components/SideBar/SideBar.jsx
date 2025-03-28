@@ -4,7 +4,6 @@ import "./SideBar.css";
 
 function SideBar({ onEditProfileClick, onLogout }) {
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
 
   return (
     <div className="sidebar">

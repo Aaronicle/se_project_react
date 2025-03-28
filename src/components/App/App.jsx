@@ -23,6 +23,7 @@ import {
 import { signup, signin, checkToken } from "../../utils/auth";
 import UserContext from "../../contexts/UserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -61,6 +62,14 @@ function App() {
     setActiveModal("edit-profile");
   };
 
+  const handleLoginClick = () => {
+    setActiveModal("signin");
+  };
+
+  const handleSignUpClick = () => {
+    setActiveModal("register");
+  };
+
   const handleEditProfile = (updatedData) => {
     const token = localStorage.getItem("jwt");
     updateProfile(updatedData, token)
@@ -75,7 +84,7 @@ function App() {
 
   const handleSignin = ({ email, password }) => {
     console.log("Attempting signin with:", { email, password });
-    signin({ email, password })
+    return signin({ email, password })
       .then((res) => {
         localStorage.setItem("jwt", res.token);
         checkToken(res.token).then((user) => {
@@ -85,7 +94,10 @@ function App() {
           closeActiveModal();
         });
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
   };
 
   const onSignOut = () => {
@@ -101,13 +113,28 @@ function App() {
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
-    console.log("card", card);
     setSelectedCard(card);
   };
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -209,7 +236,6 @@ function App() {
               onSigninClick={handleSigninClick}
               onSignOut={onSignOut}
               isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
             />
             <Routes>
               <Route
@@ -220,14 +246,13 @@ function App() {
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onLike={handleCardLike}
-                    currentUser={currentUser}
                   />
                 }
               />
               <Route
                 path="/profile"
                 element={
-                  <>
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
@@ -235,9 +260,8 @@ function App() {
                       onEditProfileClick={handleEditProfileClick}
                       onLogout={onSignOut}
                       onLike={handleCardLike}
-                      currentUser={currentUser}
                     />
-                  </>
+                  </ProtectedRoute>
                 }
               />
             </Routes>
@@ -258,17 +282,19 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onSubmit={handleRegistration}
+            handleLoginClick={handleLoginClick}
           />
           <SigninModal
             isOpen={activeModal === "signin"}
             onClose={closeActiveModal}
             onSubmit={handleSignin}
+            onSignUpClick={handleSignUpClick}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={closeActiveModal}
             onSubmit={handleEditProfile}
-            currentUser={currentUser}
+            handleLoginClick={handleLoginClick}
           />
         </div>
       </UserContext.Provider>

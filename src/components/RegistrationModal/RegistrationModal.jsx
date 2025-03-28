@@ -1,7 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
+const RegisterModal = ({ isOpen, onClose, onSubmit, handleLoginClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -51,6 +51,11 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
     }
   };
 
+  const handleSignInClick = () => {
+    onClose();
+    handleLoginClick();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setServerError("");
@@ -70,6 +75,18 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       }
     }
   };
+
+  const isFormValid = () => {
+    return (
+      email &&
+      password &&
+      name &&
+      avatar &&
+      !emailError &&
+      !passwordError &&
+      !nameError
+    );
+  };
   return (
     <ModalWithForm
       title="Sign up"
@@ -77,6 +94,9 @@ const RegisterModal = ({ isOpen, onClose, onSubmit }) => {
       isOpen={isOpen}
       handleCloseClick={onClose}
       onSubmit={handleSubmit}
+      secondaryButtonText="Sign in"
+      onSecondaryButtonClick={handleSignInClick}
+      isValid={isFormValid()}
     >
       <label className="modal__label">
         Email*

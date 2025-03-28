@@ -22,8 +22,6 @@ const Header = ({
     day: "numeric",
   });
 
-  console.log("Header isLoggedIn:", isLoggedIn);
-
   return (
     <header className="header">
       <Link to="/">

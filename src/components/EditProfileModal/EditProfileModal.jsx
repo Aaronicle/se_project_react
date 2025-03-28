@@ -18,6 +18,9 @@ function EditProfileModal({ isOpen, onClose, onSubmit, currentUser }) {
     onSubmit(updatedData);
   };
 
+  const isFormValid = () => {
+    return name && avatar;
+  };
   return (
     <ModalWithForm
       title="Change profile data"
@@ -25,6 +28,7 @@ function EditProfileModal({ isOpen, onClose, onSubmit, currentUser }) {
       isOpen={isOpen}
       handleCloseClick={onClose}
       onSubmit={handleSubmit}
+      isValid={isFormValid()}
     >
       <label className="modal__label">
         Name
