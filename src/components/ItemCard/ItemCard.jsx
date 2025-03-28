@@ -1,6 +1,9 @@
 import "./ItemCard.css";
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 
-function ItemCard({ item, onCardClick, onLike, currentUser }) {
+function ItemCard({ item, onCardClick, onLike }) {
+  const { currentUser } = useContext(UserContext);
   const handleCardClick = () => {
     onCardClick(item);
   };
@@ -8,6 +11,7 @@ function ItemCard({ item, onCardClick, onLike, currentUser }) {
   const handleLikeClick = () => {
     onLike({ id: item._id, isLiked });
   };
+
   return (
     <li className="card">
       <div className="card__header">
