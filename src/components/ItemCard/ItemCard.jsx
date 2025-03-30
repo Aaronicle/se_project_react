@@ -17,13 +17,17 @@ function ItemCard({ item, onCardClick, onLike }) {
       <div className="card__header">
         <h2 className="card__name">{item.name}</h2>
 
-        <button
-          className={`card__like-button ${
-            isLiked ? "card__like-button_liked" : ""
-          }`}
-          type="button"
-          onClick={handleLikeClick}
-        ></button>
+        {currentUser ? (
+          <button
+            className={`card__like-button ${
+              isLiked ? "card__like-button_liked" : ""
+            }`}
+            type="button"
+            onClick={handleLikeClick}
+          ></button>
+        ) : (
+          ""
+        )}
       </div>
       <img
         onClick={handleCardClick}

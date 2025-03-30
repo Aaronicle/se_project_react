@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import UserContext from "../../contexts/UserContext";
 
-function EditProfileModal({ isOpen, onClose, onSubmit, currentUser }) {
+function EditProfileModal({ isOpen, onClose, onSubmit }) {
+  const { currentUser } = useContext(UserContext);
   const [name, setName] = useState(currentUser?.name || "");
   const [avatar, setAvatar] = useState(currentUser?.avatar || "");
 
@@ -10,7 +12,7 @@ function EditProfileModal({ isOpen, onClose, onSubmit, currentUser }) {
       setName(currentUser.name);
       setAvatar(currentUser.avatar);
     }
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
