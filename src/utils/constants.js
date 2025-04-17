@@ -115,3 +115,10 @@ export const coordinates = {
 };
 
 export const APIkey = "f0fc60fcc534f5dbafa0a93b2c5c3f7b";
+
+const { BASE_URL } =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwrnj.undo.it"
+    : "http://localhost:3001";
+
+export default { BASE_URL };

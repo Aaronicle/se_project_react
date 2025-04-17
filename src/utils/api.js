@@ -1,15 +1,15 @@
-const baseUrl = "http://localhost:3001";
+import { BASE_URL } from "./constants";
 
 function checkRes(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 }
 
 function getItems() {
-  return fetch(`${baseUrl}/items`).then(checkRes);
+  return fetch(`${BASE_URL}/items`).then(checkRes);
 }
 
 function addItem({ name, imageUrl, weather }, token) {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ function addItem({ name, imageUrl, weather }, token) {
 }
 
 function deleteCard(cardId, token) {
-  return fetch(`${baseUrl}/items/${cardId}`, {
+  return fetch(`${BASE_URL}/items/${cardId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -30,7 +30,7 @@ function deleteCard(cardId, token) {
 }
 
 function addCardLike(cardId, token) {
-  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+  return fetch(`${BASE_URL}/items/${cardId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function addCardLike(cardId, token) {
 }
 
 function removeCardLike(cardId, token) {
-  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+  return fetch(`${BASE_URL}/items/${cardId}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function removeCardLike(cardId, token) {
 }
 
 function updateProfile(data, token) {
-  return fetch(`${baseUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
